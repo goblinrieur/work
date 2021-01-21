@@ -1,6 +1,6 @@
 $refDate = (Get-Date).AddDays(-30).Date
 # fill the list of binary filetypes that are most likely found
-$binaries = '*.pdb','*.exe', '*.bin', '*.png', '*.gif', '*.jpg', '*.dll'  # etcetera
+$binaries = '*.lib','*.dat','*.zip','*.jar','*.pdb','*.exe', '*.bin', '*.png', '*.gif', '*.jpg', '*.dll'  # etcetera
 
 Get-ChildItem -File -Recurse -Exclude $binaries | 
     Where-Object {$_.LastWriteTime -lt $refDate} | 
