@@ -1,4 +1,4 @@
-$limit = (Get-Date).AddDays(-30)
+$limit = (Get-Date).AddDays(-15)
 $path = "F:\"
 
 # Delete files older than the $limit.
