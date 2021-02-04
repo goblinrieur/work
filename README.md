@@ -6,7 +6,7 @@
 start-service sshd
 ```
 
-### more speccific trust settings
+### more specific trust settings
 
 ```
 set-item WSMan:\localhost\Client\TrustedHosts -Value "10.12.9.xxx"
