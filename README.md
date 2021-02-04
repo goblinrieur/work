@@ -40,3 +40,12 @@ $computerName.Rename($name)
 this needs a reboot.
 
 
+## remote access windows
+
+en powershell : 
+
+```
+cmdkey /generic:"server01" /user:"test" /pass:"PW"
+mstsc /v:server01 
+```
+
