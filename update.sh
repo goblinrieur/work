@@ -36,4 +36,9 @@ echo
 echo "for details you can look at : "
 echo "$logpath/$0.$(date +%Y%m%d).err and $logpath/$0.$(date +%Y%m%d).log"
 echo
+echo purge log path from older files 
+find $logpath/ -ctime +10 -exec rm {} \; 
+echo compressing log path few last days files
+find $logpath/ ! -name "*.gz" -ctime +1 -exec gzip {} \; 
+echo -----
 exit 0
