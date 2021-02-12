@@ -27,7 +27,7 @@ export homepath=/home/francois/GITLAB
 export otherspath=/home/francois/GITLAB/others
 
 # if logpath is existing loop around found paths to work over each one
-for path in $homepath/[dD]* $otherspath/* $workpath
+for path in $homepath/[dD]*/ $otherspath/[a-z]*/ $workpath/[amuw]*/
 do
     if [ -d $path ] ; then 
         ( 
