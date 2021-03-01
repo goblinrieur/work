@@ -20,14 +20,31 @@ else
     done
 fi
 
-# update all branches of IT tools git local repo
-# does the same whatever it is hosted on gitlab or github currently
-export workpath=/home/francois/git/IT
-export homepath=/home/francois/GITLAB
-export otherspath=/home/francois/GITLAB/others
+
+# if a parameter is given it might be a replacement of homepath value
+if [ $# -gt 0 ] ; then
+    if [ ! -d $1 ] ; then 
+        # but if it is not a directory just reject action 
+        echo directory given as first parameter is not existing
+        exit 1
+    else
+        # inform user he choose only one path
+        echo treat only $1 directory
+    fi
+    # update only branches git local repo behind $1 parameter
+    export homepath="$1"
+    echo $homepath
+else
+    # update all branches of IT tools git local repo
+    # does the same whatever it is hosted on gitlab or github currently
+    # adapt to your own directories structures : 
+    export workpath="/home/francois/git/IT"
+    export homepath="/home/francois/GITLAB/[dD]*"
+    export otherspath="/home/francois/GITLAB/others/*"
+fi
 
 # if logpath is existing loop around found paths to work over each one
-for path in $homepath/[dD]* $otherspath/* $workpath
+for path in $homepath $otherspath $workpath
 do
     if [ -d $path ] ; then 
         ( 
@@ -37,6 +54,7 @@ do
                 do
                     cd $path/$i
                     if [ -d .git ] ; then
+                        # if it is really a git repo then work on it 
                         echo ----$i----start
                         echo check branch
                         git branch --remotes | grep --invert-match '\->' | while read remote 
