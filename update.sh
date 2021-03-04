@@ -59,6 +59,12 @@ function check_parameter()
             usage
             return 1
         ;;
+        "" )
+            export workpath="/home/francois/git/IT"
+            export homepath="/home/francois/GITLAB/[dD]*"
+            export otherspath="/home/francois/GITLAB/others/*"
+            return 0
+        ;;
         *)
             if [ ! -d $1 ] ; then 
                 # but if it is not a directory just reject action 
@@ -76,6 +82,7 @@ function check_parameter()
             fi
         ;;
     esac
+    return 0
 }
 
 ####################################################################################
