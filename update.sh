@@ -143,8 +143,8 @@ function exitit()
     echo "$logpath/$0.$(date +%Y%m%d).err and $logpath/$0.$(date +%Y%m%d).log"
     echo
     echo purge log path from older files and compressing recent ones.
-    find $logpath/ -ctime +10 -exec rm {} \; &
-    find $logpath/ ! -name "*.gz" -ctime +1 -exec gzip {} \; &
+    find $logpath/ -ctime +10 -exec rm {} 2> /dev/null \; &
+    find $logpath/ ! -name "*.gz" -ctime +1 -exec gzip {} 2> /dev/null \; &
     echo -----END-----
     echo
 }
