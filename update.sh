@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/bin/bash
 
 # before starting anything check & build directory for logs
 export logpath=/home/francois/GITLAB/logs
