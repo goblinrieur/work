@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
-# script revision 0.2 - 2021-3-3
+#!/bin/bash
 
 ####################################################################################
 # this displays a help menu
