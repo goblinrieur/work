@@ -99,6 +99,7 @@ function gitem_all()
                     do
                         cd $path/$i
                         if [ -d .git ] ; then
+                            git config pull.rebase false
                             # if it is really a git repo then work on it 
                             echo ----$i----start
                             echo check branch
