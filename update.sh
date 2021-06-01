@@ -128,6 +128,11 @@ function gitem_all()
         echo ----------done-all-of-$path----------
         echo
     done
+    if [ -d /home/francois/GITLAB/update-libs-kicad ] ; then
+        if [ -f /home/francois/GITLAB/update-libs-kicad/update.sh ] ; then
+            /home/francois/GITLAB/update-libs-kicad/update.sh
+        fi
+    fi
     return 0
 }
 
