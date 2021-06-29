@@ -30,7 +30,7 @@ function make_logdir()
         fi
     else
         # set files & test they are writable
-        for i in $logpath/$0.$(date +%Y%m%d).{log,err}
+        for i in $logpath/$(basename $0).$(date +%Y%m%d).{log,err}
         do
             date "+%Y-%m-%d   %H:%M" > $i 
             if [ $? -ne 0 ] ; then
@@ -121,9 +121,9 @@ function gitem_all()
                         fi
                     done
                 # be careful bellow it is one line cut in 3 for better readings
-                ) | tee --append $logpath/$0.$(date +%Y%m%d).log \
+                ) | tee --append $logpath/$(basename $0).$(date +%Y%m%d).log \
             ) 3>&1 1>&2 2>&3 | grep --ignore-case --invert-match ' already exists.' | \
-            tee --append $logpath/$0.$(date +%Y%m%d).err
+            tee --append $logpath/$(basename $0).$(date +%Y%m%d).err
         fi
         echo ----------done-all-of-$path----------
         echo
